@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APS Alambres Perimetrales del Sur</title>
+<!-- Descripción y vista previa al compartir el link (WhatsApp, Facebook, etc.) -->
+<meta name="description" content="Fábrica de tejido romboidal y venta de accesorios para la colocación: postes, portones, alambre de púa, concertina, pinches de seguridad, alambre hexagonal, mallas electrosoldadas y cinta cubre cerco. Abonás al recibir.">
+<meta name="theme-color" content="#021A30">
+<meta property="og:type" content="website">
+<meta property="og:title" content="A.P.S. Alambres Perimetrales del Sur">
+<meta property="og:description" content="Fábrica de tejidos romboidales. Todo para tu proyecto de cerco, con instalación completa y envíos programados.">
+<meta property="og:image" content="img/logo.png">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<link rel="icon" href="img/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Saira+Stencil+One&family=Barlow:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* Variables globales de diseño: colores, tipografías y paleta del sitio.
+   Paleta tomada del logo de APS: azul, negro y gris metal galvanizado */
+:root{
+  --bg:#D3DADF; --panel:#ECF0F2; --panel2:#C4CDD3; --line:#B3BFC7;
+  --ink:#0B1216; --mut:#46545D; --steel:#8E9AA3;
+  --celeste:#80D8FC; --celeste-d:#0B6590; --celeste-l:#E3F6FE;
+  --f-d:"Bebas Neue","Arial Narrow",sans-serif;
+  --f-b:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-m:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+/* Reset básico y estilos generales del documento */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-b);font-size:17px;line-height:1.55;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--celeste-d);outline-offset:3px}
+/* Contenedor centrado que limita el ancho del contenido */
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:20px}
+/* Títulos: tipografía condensada tipo cartel */
+h1,h2,h3{font-family:var(--f-d);font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.98;margin:0;text-wrap:balance}
+h2{font-size:clamp(36px,5.6vw,68px)}
+/* Etiquetas pequeñas tipo "kicker" (texto sobre los títulos) */
+.lbl{font-family:var(--f-m);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.lbl b{color:var(--celeste-d);font-weight:600}
+/* Botones principales (llamados a la acción) */
+/* Píldora oscura con círculo celeste y flecha. Al pasar el mouse crece un poco y la flecha gira */
+.btn{display:inline-flex;align-items:center;justify-content:space-between;gap:14px;font:600 16px var(--f-b);letter-spacing:.02em;text-decoration:none;padding:7px 7px 7px 24px;border-radius:999px;background:var(--ink);color:#fff;border:0;cursor:pointer;transition:transform .22s cubic-bezier(.34,1.56,.64,1),box-shadow .22s}
+.btn .ci{width:38px;height:38px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;background:var(--celeste);color:var(--ink);font-size:18px;font-weight:700;transition:transform .25s}
+.btn:hover{transform:scale(1.06);box-shadow:0 12px 26px -10px rgba(11,18,22,.55)}
+.btn:hover .ci{transform:rotate(-45deg)}
+.btn:active{transform:scale(.96)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn.ghost .ci{background:var(--ink);color:#fff}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1.5px var(--ink),0 12px 26px -12px rgba(11,18,22,.4)}
+.btn.sm{font-size:14px;padding:5px 5px 5px 16px;gap:10px}
+.btn.sm .ci{width:30px;height:30px;font-size:15px}
+
+/* Encabezado superior (barra fija con logo y menú) */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(236,240,242,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font:400 24px var(--f-d);letter-spacing:.06em;text-transform:uppercase}
+.brand img{width:48px;height:48px}
+.top nav{display:flex;gap:26px;font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+.top nav a{text-decoration:none}.top nav a:hover{color:var(--celeste-d)}
+.top .acciones{display:flex;align-items:center;gap:10px}
+/* Botón de menú tipo "hamburguesa": tres rayitas que se convierten en una X al abrir */
+.menu-btn{display:none;width:44px;height:44px;border-radius:50%;border:0;background:var(--celeste);cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:0;transition:transform .2s}
+.menu-btn span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s,opacity .2s}
+.menu-btn:active{transform:scale(.92)}
+.top.abierto .menu-btn span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.top.abierto .menu-btn span:nth-child(2){opacity:0}
+.top.abierto .menu-btn span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+/* En celular y tablet: el menú se despliega debajo de la barra */
+@media(max-width:820px){
+  .menu-btn{display:flex}
+  .top nav{position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:var(--panel);border-bottom:1px solid var(--line);box-shadow:0 18px 30px -18px rgba(11,18,22,.45);padding:6px 20px 14px;font-size:17px;
+    visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .2s,transform .2s,visibility .2s}
+  .top.abierto nav{visibility:visible;opacity:1;transform:none}
+  .top nav a{padding:14px 2px;border-bottom:1px solid var(--line);color:var(--ink)}
+  .top nav a:last-child{border-bottom:0}
+}
+
+/* Hero: sección principal de bienvenida, arriba de todo */
+.hero{position:relative;overflow:hidden;background:linear-gradient(160deg,#E9EDF0 0%,#CDD5DB 55%,#BCC6CD 100%)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 88% 30%,rgba(128,216,252,.45),transparent 70%),radial-gradient(50% 60% at 70% 95%,rgba(142,154,163,.22),transparent 70%);pointer-events:none}
+.hero .grid{position:relative;display:grid;grid-template-columns:1fr 1.05fr;gap:28px;align-items:center;padding-block:52px 68px}
+.hero h1{font-size:clamp(46px,8vw,92px)}
+/* Resaltado celeste tipo marcador, como en las historias de la marca */
+.hero h1 em{font-style:normal;background:linear-gradient(transparent 58%,var(--celeste) 58%,var(--celeste) 92%,transparent 92%);padding-inline:.05em}
+.hero p{max-width:46ch;font-size:19px;color:#34424B;margin:18px 0 30px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.only{display:inline-flex;align-items:center;gap:10px;margin-top:30px;font-family:var(--f-m);font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);border:1px solid var(--line);background:var(--panel);padding:9px 14px}
+.only::before{content:"";width:8px;height:8px;background:var(--celeste);border:1px solid var(--ink)}
+.collage{position:relative;aspect-ratio:1/1.34;max-width:400px;width:100%;margin-inline:auto}
+.print{position:absolute;background:#fff;padding:8px;box-shadow:0 22px 40px -14px rgba(11,18,22,.35),0 0 0 1px var(--line)}
+.print img{width:100%;height:100%;object-fit:cover;display:block}
+.print.a{width:45%;left:0;top:0;transform:rotate(-3deg);z-index:1;aspect-ratio:1/1.05}
+.print.b{width:45%;right:0;top:6%;transform:rotate(4deg);z-index:2;aspect-ratio:1/1.05}
+.print.c{width:45%;left:3%;top:51%;transform:rotate(2deg);z-index:1;aspect-ratio:1/1.05}
+.print.d{width:45%;right:1%;top:55%;transform:rotate(-3deg);z-index:2;aspect-ratio:1/1.05}
+.print .in-img{width:100%;height:100%;overflow:hidden}
+/* Fotos del collage que se van turnando con un fundido */
+.print .in-img{position:relative}
+.print .in-img img{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease,transform 6s ease}
+.print .in-img img.on{opacity:1;transform:scale(1.06)}
+.print .in-img img:first-child{opacity:1}
+.print .in-img.rotando img:first-child:not(.on){opacity:0}
+@media(prefers-reduced-motion:reduce){.print .in-img img{transition:none}.print .in-img img.on{transform:none}}
+.stamp{width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--ink);border:3px solid var(--celeste);flex-direction:column;gap:5px}
+.stamp b{font:400 19px var(--f-d);text-transform:uppercase;letter-spacing:.03em;color:#fff}
+.stamp .lbl{color:var(--celeste)}
+@media(max-width:860px){.hero .grid{grid-template-columns:1fr;padding-block:32px 48px}.collage{max-width:360px}}
+/* En celular: logo y botón del encabezado más compactos para que entren en una línea */
+/* En celular la barra queda con logo + menú; "Pedir presupuesto" ya está en el hero, en el menú y en el WhatsApp flotante */
+@media(max-width:600px){.top .btn.sm{display:none}}
+@media(max-width:480px){.brand{font-size:20px;gap:8px}.brand img{width:40px;height:40px}}
+
+/* Ticker: cinta con texto deslizante debajo del hero */
+.ticker{position:relative;background:var(--celeste);color:var(--ink);overflow:hidden;padding-block:9px;border-block:2px solid var(--ink)}
+@media(max-width:600px){.ticker .track{font-size:20px;gap:32px}}
+.ticker .track{display:flex;gap:44px;width:max-content;animation:tick 34s linear infinite;font:400 26px var(--f-d);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* Botón flotante de WhatsApp con globo de mensaje */
+.wa-float{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:50;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.wa-float .bubble{position:relative;background:#fff;color:#101915;font:500 14.5px var(--f-b);line-height:1.3;padding:12px 34px 12px 16px;border-radius:12px;border:1px solid var(--line);box-shadow:0 10px 26px -8px rgba(11,18,22,.3);max-width:210px}
+.wa-float .bubble b{display:block;font-weight:700;margin-bottom:2px}
+.wa-float .bubble .x{position:absolute;top:6px;right:8px;width:20px;height:20px;border:0;background:transparent;color:#8A93A0;font-size:16px;line-height:1;cursor:pointer;padding:0}
+.wa-float .bubble .x:hover{color:#101915}
+.wa-float .btn-wa{width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px -8px rgba(11,18,22,.4);text-decoration:none;flex-shrink:0}
+.wa-float .btn-wa svg{width:30px;height:30px;fill:#fff}
+.wa-float.closed .bubble{display:none}
+@media(max-width:600px){.wa-float .bubble{display:none}.wa-float{right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px))}}
+
+/* Estilos generales compartidos por todas las secciones */
+section{padding-block:88px}
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:18px 40px;margin-bottom:40px}
+.head p{max-width:42ch;color:var(--mut);margin:0}
+
+/* Sección de productos: grilla de tarjetas */
+.prods{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.prod{position:relative;background:var(--panel);border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:row;align-items:stretch;transition:border-color .2s,box-shadow .2s}
+.prod:hover{border-color:var(--celeste-d);box-shadow:0 12px 28px -18px rgba(11,18,22,.35)}
+.prod .ph{flex:0 0 116px;position:relative;overflow:hidden;background:var(--panel2);min-height:140px}
+/* La foto se muestra completa (sin recortar); el fondo es la misma foto desenfocada para que no queden franjas vacías */
+.prod .ph{flex-basis:170px;background:#1c2329}
+.prod .ph::before{content:"";position:absolute;inset:-20px;background:var(--foto) center/cover no-repeat;filter:blur(16px) brightness(.75);transform:scale(1.1)}
+.prod .ph img{object-fit:contain!important;z-index:1}
+/* Fotos que llenan toda la miniatura, sin bordes desenfocados */
+.prod .ph.llena img{object-fit:cover!important}
+/* En celular la miniatura es más ancha para que las fotos no queden angostas y recortadas */
+@media(max-width:480px){.prod .ph{flex-basis:42%}.prod .tx{padding:14px 14px}}
+.prod .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.prod:hover .ph img{transform:scale(1.05)}
+.prod .tx{padding:16px 18px;display:flex;flex-direction:column;gap:6px;flex:1;min-width:0}
+/* Tarjetas sin foto: línea celeste a la izquierda en lugar de imagen */
+.prod.sin-foto{border-left:5px solid var(--celeste)}
+.prod.sin-foto .tx{padding:20px 22px}
+.prod h3{font-size:24px}
+.prod p{margin:0;color:var(--mut);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.tags span{font-family:var(--f-m);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--celeste-l);border:1px solid #BDE7F8;padding:4px 8px;color:#0B4F70}
+.prod .more{margin-top:auto;padding-top:10px;display:inline-flex;align-items:center;gap:8px;align-self:flex-start;font-weight:600;font-size:15px;color:var(--ink);text-decoration:none}
+.prod .more .ci{width:26px;height:26px;border-radius:50%;background:var(--celeste);display:grid;place-items:center;font-size:13px;font-weight:700;transition:transform .2s}
+.prod .more:hover .ci{transform:translateX(4px)}
+.prod.cta-t{background:var(--celeste-l);border:1.5px solid var(--celeste);color:var(--ink);flex-direction:column;justify-content:center;padding:24px;gap:12px}
+.prod.cta-t .lbl{color:var(--celeste-d)}
+.prod.cta-t p{color:#34424B}
+.prod.cta-t .btn{align-self:flex-start}
+.prod.cta-t{grid-column:1/-1}
+
+/* Todas las tarjetas del mismo alto: en compu cada fila iguala, y en celular tienen un alto mínimo parejo */
+.prods{grid-auto-rows:1fr}
+@media(max-width:820px){.prods{grid-template-columns:1fr;grid-auto-rows:auto}.prod:not(.cta-t){min-height:300px}}
+
+/* Sección "Nosotros" (historia de la empresa) */
+.story{background:var(--panel);border-block:1px solid var(--line)}
+.story .grid{display:block}
+/* Sin foto: título a la izquierda, texto a la derecha y los 4 puntos abajo a todo el ancho */
+.story .grid>div{display:grid;grid-template-columns:1fr 1fr;column-gap:56px;align-items:end}
+.story .grid>div>.lbl,.story .grid>div>h2{grid-column:1}
+.story .grid>div>p{grid-column:2;grid-row:1/3;margin:0 0 22px}
+.story .four{grid-column:1/-1}
+@media(max-width:860px){.story .grid>div{display:block}.story .grid>div>p{margin:0}}
+.story h2{margin:14px 0 22px}
+.story p{color:#34424B;max-width:52ch}
+.four{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line)}
+.four li{padding:16px 8px;text-align:center;border-right:1px solid var(--line);font:400 19px var(--f-d);letter-spacing:.03em;text-transform:uppercase;line-height:1.1}
+.four li:last-child{border-right:0}
+.four small{display:block;font:500 10.5px var(--f-m);letter-spacing:.06em;color:var(--mut);margin-top:6px;text-transform:none;line-height:1.3}
+@media(max-width:860px){.four{grid-template-columns:1fr 1fr}.four li{border-bottom:1px solid var(--line)}}
+
+/* Sección "Proceso": pasos numerados de asesoramiento */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.steps li{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--celeste);padding:22px 20px}
+.steps b{display:block;font:400 34px var(--f-d);color:var(--celeste-d);letter-spacing:.03em}
+.steps h4{margin:6px 0 6px;font:400 22px var(--f-d);text-transform:uppercase;letter-spacing:.03em}
+.steps p{margin:0;color:var(--mut);font-size:15px}
+/* Pasos interactivos: el texto se despliega al pasar el mouse, al tocar o al navegar con el teclado */
+.steps{align-items:start}
+.steps li{position:relative;cursor:pointer;transition:transform .22s cubic-bezier(.34,1.56,.64,1),box-shadow .22s,border-color .22s}
+.steps li::after{content:"+";position:absolute;top:18px;right:18px;width:30px;height:30px;border-radius:50%;background:var(--celeste);color:var(--ink);display:grid;place-items:center;font:700 18px var(--f-b);transition:transform .25s}
+.steps li p{max-height:0;opacity:0;overflow:hidden;transition:max-height .35s ease,opacity .25s,margin .25s}
+.steps li:hover,.steps li:focus-visible,.steps li.abierto{transform:translateY(-4px);box-shadow:0 16px 30px -18px rgba(11,18,22,.45);border-color:var(--celeste-d)}
+.steps li:hover p,.steps li:focus-visible p,.steps li.abierto p{max-height:220px;opacity:1;margin-top:8px}
+.steps li:hover::after,.steps li:focus-visible::after,.steps li.abierto::after{transform:rotate(45deg)}
+@media(prefers-reduced-motion:reduce){.steps li,.steps li p,.steps li::after{transition:none}}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+
+/* Galería de trabajos (sin usar por ahora: queda lista para cuando lleguen fotos de cercos colocados) */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gal figure{margin:0;position:relative;overflow:hidden;background:var(--panel2);aspect-ratio:4/3}
+.gal figure.big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gal figure:hover img{transform:scale(1.04)}
+.gal figcaption{position:absolute;left:0;bottom:0;font:600 11px var(--f-m);letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:#fff;padding:6px 10px}
+@media(max-width:820px){.gal{grid-template-columns:1fr 1fr}.gal figure.big{grid-column:1/-1;grid-row:auto;aspect-ratio:4/3}}
+
+/* Datos de contacto (depósito, horarios, envíos) y mapa */
+.datos{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;text-align:left}
+.datos div{border:1px solid var(--line);border-left:4px solid var(--celeste);padding:14px 16px;background:var(--bg)}
+.datos b{display:block;font:400 20px var(--f-d);letter-spacing:.03em;text-transform:uppercase;color:var(--celeste-d);margin-bottom:4px}
+.datos span{font-size:15px;color:#34424B}
+.mapa{margin-top:24px;border:1px solid var(--line);aspect-ratio:16/9;width:100%}
+.mapa iframe{width:100%;height:100%;border:0;display:block}
+@media(max-width:560px){.datos{grid-template-columns:1fr}.zona .box{padding:24px 18px}}
+
+/* Estilos base para los campos del formulario de contacto */
+label{display:block;font:600 11.5px var(--f-m);letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:6px}
+input,select,textarea{width:100%;padding:13px 14px;font:inherit;font-size:16px;background:#fff;color:var(--ink);border:1px solid #A9B6BF;border-radius:0}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--celeste-d);box-shadow:0 0 0 3px var(--celeste-l)}
+input::placeholder,textarea::placeholder{color:#8B98A1}
+
+/* Sección "Zona de cobertura" con fondo de tejido romboidal */
+.zona{background:
+  repeating-linear-gradient(45deg,#A9B6BF 0 2px,transparent 2px 30px),
+  repeating-linear-gradient(-45deg,#A9B6BF 0 2px,transparent 2px 30px),
+  var(--panel2);
+  border-block:1px solid var(--line)}
+.zona .box{max-width:760px;background:var(--panel);border:1px solid var(--line);box-shadow:0 22px 40px -24px rgba(11,18,22,.35);padding:40px;margin-inline:auto;text-align:center}
+.zona .box > p{color:#34424B;margin-top:16px}
+.zona .box .cta{justify-content:center;margin-top:24px}
+
+/* Formulario de contacto y sección de preguntas frecuentes (FAQ) */
+.cform{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--celeste);padding:30px;max-width:820px}
+.cform .full{grid-column:1/-1}
+.cform .btn{width:100%}
+@media(max-width:560px){.cform{grid-template-columns:1fr;padding:20px}}
+/* Preguntas: tarjetas que se abren al pasar el mouse (compu) o al tocarlas (celular) */
+.faq{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;align-items:start}
+@media(max-width:820px){.faq{grid-template-columns:1fr}}
+details{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--celeste);padding:18px 20px;transition:transform .22s cubic-bezier(.34,1.56,.64,1),box-shadow .22s,border-color .22s}
+details:hover,details[open]{transform:translateY(-4px);box-shadow:0 16px 30px -18px rgba(11,18,22,.45);border-color:var(--celeste-d);border-top-color:var(--celeste)}
+summary{cursor:pointer;font:400 22px var(--f-d);text-transform:uppercase;letter-spacing:.02em;line-height:1.1;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--celeste);color:var(--ink);display:grid;place-items:center;font:700 18px var(--f-b);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:10px 0 0;color:var(--mut);font-size:15px;animation:aparecer .3s ease}
+@keyframes aparecer{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){details,summary::after{transition:none}details p{animation:none}}
+
+/* Sección final: bloque destacado de cierre con llamado a la acción */
+.final{position:relative;overflow:hidden;padding-block:88px;background:var(--celeste);color:var(--ink);border-top:2px solid var(--ink)}
+.final::before{content:"";position:absolute;inset:0;background:
+  repeating-linear-gradient(45deg,rgba(255,255,255,.28) 0 2px,transparent 2px 34px),
+  repeating-linear-gradient(-45deg,rgba(255,255,255,.28) 0 2px,transparent 2px 34px);pointer-events:none}
+.final .grid{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+.final h2{font-size:clamp(40px,7vw,90px)}
+.final p{max-width:44ch;font-size:19px;margin:16px 0 0}
+.final .ch{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.final .ch a.l{font:600 14px var(--f-m);letter-spacing:.06em;text-underline-offset:4px;color:var(--ink)}
+.final .logo{width:120px;height:120px;margin-bottom:6px;filter:drop-shadow(0 8px 16px rgba(11,18,22,.25))}
+@media(max-width:800px){.final .grid{grid-template-columns:1fr}}
+/* Pie de página */
+footer{padding-block:28px;font:500 12px var(--f-m);letter-spacing:.06em;color:var(--mut);text-align:center;background:var(--panel)}
+/* Desactiva la animación del ticker si el usuario prefiere menos movimiento */
+@media(prefers-reduced-motion:reduce){.ticker .track{animation:none}}
+/* Letra del logo (stencil) en la marca y los títulos principales */
+.brand,.hero h1,.final h2{font-family:"Saira Stencil One",var(--f-d);letter-spacing:.01em}
+.brand{font-size:22px}
+.hero h1{font-size:clamp(34px,4.6vw,62px);line-height:1.05}
+.final h2{font-size:clamp(32px,4.8vw,66px);line-height:1.05}
+@media(max-width:480px){.brand{font-size:17px}}
+
+/* ===== Rediseño moderno: azul del logo ===== */
+:root{
+  --azul:#03518F; --azul-d:#022F55; --azul-l:#E4EEF7; --cielo:#8FCBEF;
+  --celeste:var(--azul); --celeste-d:var(--azul); --celeste-l:var(--azul-l);
+  --r:18px;
+}
+::selection{background:var(--azul);color:#fff}
+/* Botones: píldora oscura con círculo azul; en fondos oscuros, versión blanca */
+.btn .ci{color:#fff}
+.btn:hover{box-shadow:0 14px 30px -12px rgba(3,81,143,.55)}
+.menu-btn span{background:#fff}
+/* Encabezado */
+header.top{background:rgba(255,255,255,.85)}
+/* Hero oscuro en azul profundo, con el tejido romboidal de fondo */
+.hero{background:radial-gradient(90% 120% at 85% 10%,#0A6BB8 0%,transparent 55%),linear-gradient(145deg,#021A30 0%,#03345E 55%,#03518F 100%);color:#fff}
+.hero::before{background:
+  repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 1px,transparent 1px 34px),
+  repeating-linear-gradient(-45deg,rgba(255,255,255,.05) 0 1px,transparent 1px 34px)}
+.hero .lbl{color:var(--cielo)}.hero .lbl b{color:#fff}
+.hero h1 em{background:none;padding:0;color:transparent;background-image:linear-gradient(90deg,#8FCBEF,#FFFFFF);-webkit-background-clip:text;background-clip:text}
+.hero p{color:#C9D9E8}.hero p strong{color:#fff}
+.hero .btn{background:#fff;color:var(--ink)}
+.hero .btn .ci{background:var(--azul);color:#fff}
+.hero .btn.ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6)}
+.hero .btn.ghost .ci{background:#fff;color:var(--ink)}
+.only{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#fff;border-radius:999px;backdrop-filter:blur(6px)}
+.only::before{background:#3DDC84;border:0;border-radius:50%;box-shadow:0 0 0 4px rgba(61,220,132,.25)}
+.print{border-radius:16px;padding:6px;background:rgba(255,255,255,.95);box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.print .in-img{border-radius:12px}
+.stamp{background:var(--azul);border:0;border-radius:12px}
+.stamp .lbl{color:var(--cielo)}
+/* Cinta deslizante en azul */
+.ticker{background:var(--azul);color:#fff;border:0}
+/* Encabezados de sección: etiqueta tipo chip y títulos con un detalle de color */
+section{padding-block:96px}
+.head h2,.story h2{position:relative}
+.head h2::after{content:"";display:block;width:56px;height:5px;border-radius:5px;margin-top:16px;background:linear-gradient(90deg,var(--azul),var(--cielo))}
+.lbl{display:inline-flex;align-items:center;gap:8px;background:var(--azul-l);color:var(--azul);padding:6px 12px;border-radius:999px;letter-spacing:.12em}
+.lbl b{display:none}
+/* Tarjetas de productos redondeadas, con elevación al pasar el mouse */
+.prod{border-radius:var(--r);border:1px solid rgba(3,81,143,.10);box-shadow:0 1px 2px rgba(11,18,22,.06);background:#fff;transition:transform .25s ease,box-shadow .25s ease,border-color .25s}
+.prod:hover{transform:translateY(-4px);border-color:rgba(3,81,143,.35);box-shadow:0 22px 40px -22px rgba(3,81,143,.55)}
+.prod .ph{border-radius:calc(var(--r) - 6px);margin:6px}
+.prod h3{color:var(--azul-d)}
+.tags span{background:var(--azul-l);border:0;color:var(--azul);border-radius:999px;padding:5px 10px}
+.prod .more .ci{color:#fff}
+.prod.cta-t{background:linear-gradient(135deg,var(--azul-d),var(--azul));border:0;color:#fff}
+.prod.cta-t h3{color:#fff}.prod.cta-t p{color:#C9D9E8}
+.prod.cta-t .lbl{background:rgba(255,255,255,.12);color:#fff}
+.prod.cta-t .btn{background:#fff;color:var(--ink)}
+/* Nosotros: bloque blanco con los 4 puntos como tarjetas */
+.story{background:#fff;border:0}
+.four{border:0;gap:12px}
+.four li{border:0!important;background:var(--azul-l);border-radius:14px;padding:18px 10px;color:var(--azul-d)}
+/* Pasos y preguntas redondeados */
+.steps li,details{border-radius:var(--r);border:1px solid rgba(3,81,143,.12);border-top:1px solid rgba(3,81,143,.12);background:#fff;overflow:hidden}
+.steps li::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(var(--azul),var(--cielo))}
+details{position:relative}
+details::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(var(--azul),var(--cielo))}
+.steps li::after,summary::after{color:#fff}
+.steps b{font-size:40px;background:linear-gradient(90deg,var(--azul),#2E8BD6);-webkit-background-clip:text;background-clip:text;color:transparent}
+/* Depósito y formulario */
+.zona{background:linear-gradient(180deg,#EAF1F7,#D9E4EE)}
+.zona .box{border-radius:24px;border:0;box-shadow:0 30px 60px -30px rgba(3,81,143,.45)}
+.datos div{border-radius:14px;border:0;border-left:0;background:var(--azul-l)}
+.mapa,.mapa iframe{border-radius:16px;overflow:hidden}
+.cform{border-radius:24px;border:0;border-top:0;background:#fff;box-shadow:0 30px 60px -34px rgba(3,81,143,.45)}
+input,select,textarea{border-radius:12px;background:#F5F8FB}
+/* Cierre en azul del logo */
+.final{background:radial-gradient(70% 120% at 90% 0%,#0A6BB8,transparent 60%),linear-gradient(145deg,#021A30,#03518F);color:#fff;border:0}
+.final::before{background:
+  repeating-linear-gradient(45deg,rgba(255,255,255,.06) 0 1px,transparent 1px 34px),
+  repeating-linear-gradient(-45deg,rgba(255,255,255,.06) 0 1px,transparent 1px 34px)}
+.final p{color:#C9D9E8}
+.final .ch a.l{color:#fff}
+.final .btn{background:#fff;color:var(--ink)}
+.final .btn .ci{background:var(--azul);color:#fff}
+footer{background:#021A30;color:#8FA9C0}
+/* Ajustes del rediseño */
+.lbl{width:fit-content;justify-self:start;align-self:flex-start}
+.hero .lbl{background:rgba(255,255,255,.1);color:var(--cielo);border:1px solid rgba(143,203,239,.3)}
+.stamp .lbl{background:none;padding:0;align-self:center;margin-top:4px}
+.hero .lbl{margin-bottom:14px}
+.zona .lbl{align-self:center;margin-inline:auto}
+.zona .box{background:#fff}
+html,body{background:#E7ECF1}
+:root{--bg:#E7ECF1}
+footer.wrap{max-width:none;margin:0}
+/* ===== Mejoras: hero con trabajos de fondo, títulos en dos pesos, visor, formulario y tarjetas en celular ===== */
+/* Hero: fotos de trabajos realizados de fondo, con un velo azul para que se lea el texto */
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease,transform 8s ease;transform:scale(1.04)}
+.hero-bg img.on{opacity:1;transform:scale(1.12)}
+.hero::before{z-index:1;background:
+  linear-gradient(90deg,rgba(2,22,40,.94) 0%,rgba(2,30,55,.82) 42%,rgba(3,60,110,.55) 100%),
+  repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0 1px,transparent 1px 34px),
+  repeating-linear-gradient(-45deg,rgba(255,255,255,.04) 0 1px,transparent 1px 34px)}
+.hero .grid{z-index:2}
+@media(max-width:860px){.hero::before{background:linear-gradient(180deg,rgba(2,22,40,.9),rgba(2,30,55,.86)),repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0 1px,transparent 1px 34px)}}
+/* Títulos en dos pesos: primera parte fina en minúscula, segunda gruesa */
+h2 .fino{display:block;font-family:var(--f-b);font-weight:300;text-transform:lowercase;letter-spacing:-.01em;font-size:.6em;line-height:1.15;margin-bottom:.04em;opacity:.85}
+.head h2::after{margin-top:18px}
+/* Visor de fotos: tocar una foto de producto la abre en grande */
+.prod .ph{cursor:zoom-in}
+.prod .ph::after{content:"";position:absolute;right:8px;bottom:8px;z-index:2;width:30px;height:30px;border-radius:50%;background:rgba(2,26,48,.65) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='6'/%3E%3Cpath d='M20 20l-4.2-4.2M11 8.5v5M8.5 11h5'/%3E%3C/svg%3E") center/16px no-repeat;backdrop-filter:blur(4px);opacity:.9;transition:transform .2s}
+.prod:hover .ph::after{transform:scale(1.12)}
+.visor{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;background:rgba(2,14,26,.92);backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+.visor.abierto{opacity:1;visibility:visible}
+.visor img{max-width:min(92vw,1000px);max-height:78vh;border-radius:16px;box-shadow:0 30px 80px -20px rgba(0,0,0,.8);transform:scale(.96);transition:transform .25s}
+.visor.abierto img{transform:none}
+.visor p{color:#fff;font:600 16px var(--f-b);margin:0;text-align:center}
+.visor-x{position:absolute;top:16px;right:16px;width:46px;height:46px;border-radius:50%;border:0;background:#fff;color:var(--ink);font-size:26px;line-height:1;cursor:pointer}
+/* Formulario: elegir modalidad con tarjetas */
+.opciones{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cform label.op{display:flex;gap:12px;align-items:flex-start;margin:0;padding:14px 16px;border:1.5px solid #C9D6E2;border-radius:14px;background:#F5F8FB;cursor:pointer;text-transform:none;letter-spacing:0;font:inherit;color:var(--ink);transition:border-color .2s,background .2s,box-shadow .2s}
+.op input{appearance:none;flex-shrink:0;width:20px;height:20px;margin:2px 0 0;padding:0;border-radius:50%;border:2px solid #9FB3C5;background:#fff}
+.op input:checked{border:6px solid var(--azul)}
+.op b{display:block;font-size:15px}
+.op small{display:block;font-size:13px;color:var(--mut);margin-top:2px}
+.cform label.op:has(input:checked){border-color:var(--azul);background:var(--azul-l);box-shadow:0 0 0 3px rgba(3,81,143,.12)}
+@media(max-width:480px){.opciones{grid-template-columns:1fr}}
+/* Tarjetas de productos en celular: foto arriba a todo el ancho y texto abajo */
+@media(max-width:620px){
+  .prod{flex-direction:column}
+  .prod:not(.cta-t){min-height:0}
+  .prod .ph{flex:0 0 auto;width:auto;min-height:0;aspect-ratio:4/3;margin:8px 8px 0}
+  .prod .tx{padding:16px 18px 18px}
+  .prod h3{font-size:24px}
+  .prods{gap:18px}
+}
+/* Fotos cuadradas preparadas: llenan la miniatura, recortando el fondo desenfocado de los bordes */
+.prod .ph.cuadrada img{object-fit:cover!important}
+@media(max-width:620px){.prod .ph.cuadrada img{object-fit:cover!important}}
+/* En celular, las fotos cuadradas van centradas */
+@media(max-width:620px){.prod .ph picture img{object-position:50% 50%!important}}
+
+/* ===== Catálogo de productos: fichas verticales parejas (misma proporción en compu y celular) ===== */
+/* Todas las fotos se muestran en 4:5 (vertical), la misma forma en la que se sacan con el celular,
+   así lo que se ve en la compu es lo mismo que en el teléfono. Cada foto tiene su punto de foco (--pos). */
+#productos .prods{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:auto;gap:18px}
+#productos .prod{position:relative;display:block;min-height:0;padding:0;margin:0;border:0;border-radius:20px;overflow:hidden;background:#0B1A26;aspect-ratio:4/5;cursor:pointer;box-shadow:0 1px 2px rgba(11,18,22,.08),0 18px 36px -24px rgba(2,30,55,.55);isolation:isolate;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+#productos .prod:hover,#productos .prod:focus-visible{transform:translateY(-6px);box-shadow:0 30px 50px -26px rgba(2,30,55,.75)}
+#productos .prod .ph{position:absolute;inset:0;margin:0;border-radius:0;min-height:0;background:#0B1A26;cursor:pointer}
+#productos .prod .ph::before,#productos .prod .ph::after{display:none}
+#productos .prod .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover!important;object-position:var(--pos,50% 50%)!important;transform:scale(1.001);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+#productos .prod:hover .ph img{transform:scale(1.06)}
+/* Velo oscuro abajo para que el título se lea sobre cualquier foto */
+#productos .prod .tx{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:70px 18px 18px;gap:4px;background:linear-gradient(180deg,transparent 0%,rgba(2,20,36,.55) 40%,rgba(2,20,36,.92) 100%);color:#fff;display:flex;flex-direction:column}
+#productos .prod .kick{align-self:flex-start;font:600 10.5px var(--f-m);letter-spacing:.12em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(6px);padding:4px 9px;border-radius:999px;margin-bottom:6px}
+#productos .prod h3{color:#fff;font-size:clamp(22px,2.1vw,27px);line-height:1;padding-right:40px}
+#productos .prod .ver{position:absolute;right:14px;bottom:16px;width:34px;height:34px;border-radius:50%;background:#fff;color:var(--azul);display:grid;place-items:center;font:700 20px var(--f-b);transition:transform .3s}
+#productos .prod:hover .ver{transform:rotate(90deg)}
+#productos .prod .det{display:none}
+/* Tarjeta "Te asesoramos": ocupa dos lugares y cierra la grilla */
+#productos .prod.cta-t{aspect-ratio:auto;grid-column:span 2;display:flex;flex-direction:column;justify-content:center;gap:12px;padding:32px;cursor:default;background:linear-gradient(135deg,var(--azul-d),var(--azul))}
+#productos .prod.cta-t:hover{transform:none}
+#productos .prod.cta-t h3{padding:0;font-size:clamp(30px,3vw,40px)}
+@media(max-width:1020px){#productos .prods{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){
+  /* En celular: foto 4:5 (el mismo recorte que en la compu) y el nombre abajo, sobre blanco */
+  #productos .prods{grid-template-columns:1fr 1fr;gap:12px}
+  #productos .prod{aspect-ratio:auto;border-radius:16px;background:#fff;box-shadow:0 1px 2px rgba(11,18,22,.08),0 12px 26px -20px rgba(2,30,55,.5)}
+  #productos .prod .ph{position:relative;inset:auto;aspect-ratio:4/5;margin:6px;border-radius:12px;overflow:hidden}
+  #productos .prod .tx{position:static;background:none;padding:6px 44px 14px 12px;min-height:58px;justify-content:center}
+  #productos .prod .kick{display:none}
+  #productos .prod h3{color:var(--azul-d);font-size:20px;padding:0}
+  #productos .prod .ver{width:30px;height:30px;font-size:18px;right:10px;bottom:auto;top:calc(100% - 46px);background:var(--azul);color:#fff}
+  #productos .prod.cta-t{grid-column:1/-1;padding:24px;background:linear-gradient(135deg,var(--azul-d),var(--azul))}
+  #productos .prod.cta-t h3{color:#fff;font-size:32px}
+}
+@media(prefers-reduced-motion:reduce){#productos .prod,#productos .prod .ph img{transition:none}}
+
+/* Ficha del producto: se abre al tocar una tarjeta. La foto se ve completa, sin recortes */
+.ficha{position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(2,14,26,.72);backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+.ficha.abierto{opacity:1;visibility:visible}
+.ficha .card{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);width:min(960px,100%);max-height:calc(100vh - 48px);background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(0,0,0,.7);transform:translateY(14px) scale(.98);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.ficha.abierto .card{transform:none}
+.ficha .foto{background:#0B1A26;display:flex;align-items:center;justify-content:center;min-height:0}
+.ficha .foto img{width:100%;height:100%;max-height:calc(100vh - 48px);object-fit:contain}
+.ficha .info{padding:40px 36px 32px;display:flex;flex-direction:column;gap:14px;overflow:auto}
+.ficha .info .kick{align-self:flex-start;font:600 11px var(--f-m);letter-spacing:.12em;text-transform:uppercase;color:var(--azul);background:var(--azul-l);padding:5px 11px;border-radius:999px}
+.ficha h3{font-size:clamp(34px,4vw,46px);color:var(--azul-d)}
+.ficha p{margin:0;color:#34424B;font-size:17px}
+.ficha .tags{margin-top:2px}
+.ficha .more{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:12px;text-decoration:none;font:600 16px var(--f-b);background:#25D366;color:#fff;padding:7px 7px 7px 22px;border-radius:999px}
+.ficha .more .ci{width:36px;height:36px;border-radius:50%;background:#fff;color:#128C4A;display:grid;place-items:center;font-weight:700}
+.ficha-x{position:absolute;top:14px;right:14px;z-index:3;width:42px;height:42px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--ink);font-size:24px;line-height:1;cursor:pointer;box-shadow:0 6px 16px -6px rgba(0,0,0,.4)}
+@media(max-width:700px){
+  .ficha{align-items:flex-end;padding:0}
+  .ficha .card{grid-template-columns:1fr;grid-template-rows:auto 1fr;width:100%;max-height:92vh;border-radius:22px 22px 0 0;transform:translateY(100%)}
+  .ficha .foto img{height:auto;max-height:46vh}
+  .ficha .info{padding:22px 20px calc(24px + env(safe-area-inset-bottom,0px))}
+  .ficha h3{font-size:34px}
+  .ficha p{font-size:16px}
+  .ficha .more{align-self:stretch;justify-content:space-between;margin-top:8px}
+}
+body.sin-scroll{overflow:hidden}
+
+/* Collage del hero: todas las fotos vienen recortadas a la misma proporción (1:1,05), así se ven iguales en compu y celular.
+*/
+.print .in-img img{object-fit:cover;object-position:50% 50%}
+
+/* Sello "Fabricación propia": el logo en el centro y un anillo de texto que gira despacio, sobre el tejido romboidal */
+.sello{position:relative;width:100%;height:100%;border-radius:12px;overflow:hidden;display:grid;place-items:center;
+  background:repeating-linear-gradient(45deg,rgba(255,255,255,.09) 0 1.5px,transparent 1.5px 18px),repeating-linear-gradient(-45deg,rgba(255,255,255,.09) 0 1.5px,transparent 1.5px 18px),radial-gradient(circle at 50% 45%,#0A6BB8 0%,#03518F 55%,#022F55 100%)}
+.sello .anillo{position:absolute;inset:4%;width:92%;height:92%;animation:girar 26s linear infinite}
+.sello .anillo text{font:600 14.5px var(--f-m);fill:#fff;letter-spacing:.06em}
+.sello img{position:relative;width:52%;height:auto;border-radius:50%;background:#fff;padding:3px;box-shadow:0 0 0 4px rgba(143,203,239,.45),0 14px 26px -10px rgba(0,0,0,.6)}
+@keyframes girar{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.sello .anillo{animation:none}}
+
+/* Con 11 productos, "Te asesoramos" ocupa un solo lugar y completa la última fila */
+#productos .prod.cta-t{grid-column:auto;aspect-ratio:4/5;padding:26px 22px;gap:10px}
+#productos .prod.cta-t h3{font-size:clamp(28px,2.6vw,36px)}
+#productos .prod.cta-t p{font-size:15px;margin:0}
+#productos .prod.cta-t .btn{font-size:14px;padding:5px 5px 5px 16px;gap:10px}
+#productos .prod.cta-t .btn .ci{width:32px;height:32px}
+@media(max-width:700px){
+  #productos .prod.cta-t{grid-column:auto;aspect-ratio:auto;padding:16px 14px;justify-content:flex-end}
+  #productos .prod.cta-t .lbl{font-size:9px;padding:4px 8px;letter-spacing:.06em}
+  #productos .prod.cta-t h3{font-size:24px}
+  #productos .prod.cta-t p{font-size:13.5px;line-height:1.35}
+  #productos .prod.cta-t .btn{align-self:stretch;justify-content:center;white-space:nowrap;font-size:12px;letter-spacing:0;padding:10px 4px}
+  #productos .prod.cta-t .btn .ci{display:none}
+}
+
+/* "Te asesoramos": el sello de APS arriba para que la tarjeta no quede vacía */
+#productos .prod.cta-t .sello-cta{flex:0 0 auto;width:46%;max-width:150px;height:auto;aspect-ratio:1;align-self:center;margin:0 auto 4px;background:none;border-radius:50%;overflow:visible}
+#productos .prod.cta-t .sello-cta img{width:54%}
+@media(max-width:700px){#productos .prod.cta-t .sello-cta{width:72%;max-width:140px}}
+#productos .prod.cta-t .lbl{display:none}
+
+
+/* Hero con el mismo degradé azul que el cierre de la página (se nota más el degradé) */
+.hero::before{background:
+  radial-gradient(70% 120% at 90% 0%,rgba(10,107,184,.85),transparent 60%),
+  linear-gradient(145deg,rgba(3,45,82,.84) 0%,rgba(10,107,184,.62) 100%),
+  repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 1px,transparent 1px 34px),
+  repeating-linear-gradient(-45deg,rgba(255,255,255,.05) 0 1px,transparent 1px 34px)}
+@media(max-width:860px){.hero::before{background:
+  radial-gradient(90% 60% at 100% 0%,rgba(10,107,184,.85),transparent 60%),
+  linear-gradient(160deg,rgba(3,45,82,.86) 0%,rgba(10,107,184,.68) 100%),
+  repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 1px,transparent 1px 34px),
+  repeating-linear-gradient(-45deg,rgba(255,255,255,.05) 0 1px,transparent 1px 34px)}}
+/* Tarjeta fija "Abonás al recibir" */
+.pago{width:100%;height:100%;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-align:center;color:#fff;
+  background:repeating-linear-gradient(45deg,rgba(255,255,255,.08) 0 1.5px,transparent 1.5px 18px),repeating-linear-gradient(-45deg,rgba(255,255,255,.08) 0 1.5px,transparent 1.5px 18px),radial-gradient(circle at 50% 40%,#0A6BB8 0%,#03518F 60%,#022F55 100%)}
+.pago .ico{width:30%;max-width:64px;aspect-ratio:1;border-radius:50%;background:#fff;color:var(--azul);display:grid;place-items:center;margin-bottom:10px;box-shadow:0 0 0 4px rgba(143,203,239,.4)}
+.pago .ico svg{width:58%;height:58%}
+.pago b{font:400 clamp(22px,2.6vw,32px)/1 "Saira Stencil One",var(--f-d);letter-spacing:.02em;text-transform:uppercase}
+
+
+/* Fondo del inicio: degradé azul con tejido romboidal, igual que el cierre, que se desliza muy despacio */
+.hero::before{background:
+  repeating-linear-gradient(45deg,rgba(255,255,255,.1) 0 1px,transparent 1px 34px),
+  repeating-linear-gradient(-45deg,rgba(255,255,255,.1) 0 1px,transparent 1px 34px);
+  background-size:48.08px 48.08px;animation:rombos 60s linear infinite}
+@media(max-width:860px){.hero::before{background:
+  repeating-linear-gradient(45deg,rgba(255,255,255,.1) 0 1px,transparent 1px 34px),
+  repeating-linear-gradient(-45deg,rgba(255,255,255,.1) 0 1px,transparent 1px 34px);
+  background-size:48.08px 48.08px}}
+.hero{background:radial-gradient(70% 120% at 90% 0%,#1A7FCC,transparent 60%),linear-gradient(145deg,#043B6C 0%,#0A63AA 100%)}
+@keyframes rombos{to{background-position:-480.8px 0,-480.8px 0}}
+@media(prefers-reduced-motion:reduce){.hero::before{animation:none}}
+
+/* Redes con su ícono */
+.final .ch a.l{display:inline-flex;align-items:center;gap:12px;text-decoration:none}
+.final .ch a.l:hover{text-decoration:underline;text-underline-offset:4px}
+.red{width:38px;height:38px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;color:#fff;box-shadow:0 6px 14px -6px rgba(0,0,0,.5)}
+.red svg{width:21px;height:21px}
+.red.ig{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%)}
+.red.tt{background:#111}
+.red.fb{background:#1877F2}
+</style>
+
+</head>
+<body>
+<!-- Encabezado fijo: logo, menú de navegación y botón de presupuesto -->
+<header class="top">
+  <div class="wrap in">
+    <a class="brand" href="#"><img src="img/logo.svg" alt="Logo APS Alambres Perimetrales del Sur">A.P.S. Alambres</a>
+    <nav id="menu" aria-label="Secciones"><a href="#productos">Productos</a><a href="#nosotros">Nosotros</a><a href="#zona">Depósito</a><a href="#consulta">Presupuesto</a><a href="#faq">Preguntas</a></nav>
+    <div class="acciones">
+      <a class="btn sm" data-wa="Hola! Quiero pedir un presupuesto para un proyecto de cerco." href="#" target="_blank" rel="noopener">Pedir presupuesto <span class="ci" aria-hidden="true">→</span></a>
+      <!-- Botón de menú (solo en celular): abre y cierra la lista de secciones -->
+      <button type="button" class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- Hero: título principal, texto de bienvenida y collage de imágenes -->
+<div class="hero">
+  <div class="wrap grid">
+    <div>
+      <h1>Tu seguridad, <em>en las mejores manos</em></h1>
+      <p><strong>Fábrica de tejido romboidal</strong> y venta de accesorios para la colocación: postes, variedad en portones, alambre de púa, concertina, pinches de seguridad, alambre hexagonal, mallas electrosoldadas, cinta cubre cerco y más.</p>
+      <div class="cta"><a class="btn" data-wa="Hola! Quiero pedir un presupuesto para un proyecto de cerco." href="#" target="_blank" rel="noopener">Pedir presupuesto <span class="ci" aria-hidden="true">→</span></a><a class="btn ghost" href="#productos">Ver productos <span class="ci" aria-hidden="true">→</span></a></div>
+      <div class="only">Atención telefónica · Lun a sáb · 8 a 13 y 15 a 19 hs</div>
+    </div>
+    <div class="collage" aria-hidden="false">
+      <div class="print a" data-fx data-par=".05"><div class="in-img"><img src="img/hero/tejido.jpg" alt="Rollos de tejido romboidal de fabricación propia"><img src="img/hero/tranquera.jpg" alt="Tranquera de madera" loading="lazy"><img src="img/hero/herrajes.jpg" alt="Accesorios galvanizados" loading="lazy"><img src="img/hero/cerco-hormigon.jpg" alt="Cerco instalado con postes de hormigón" loading="lazy"></div></div>
+      <div class="print b" data-fx data-par="-.06"><div class="in-img"><img src="img/hero/pua.jpg" alt="Rollos de alambre de púa galvanizado"><img src="img/hero/palos.jpg" alt="Palos redondos de eucalipto" loading="lazy"><img src="img/hero/cinta.jpg" alt="Cinta cubre cerco entrelazada en el tejido" loading="lazy"><img src="img/hero/concertina.jpg" alt="Concertina de seguridad" loading="lazy"></div></div>
+      <div class="print c" data-fx data-par=".09"><div class="in-img"><img src="img/hero/portones.jpg" alt="Puertas y portones de caño"><img src="img/hero/bisagras.jpg" alt="Bisagras y herrajes para portón" loading="lazy"><img src="img/hero/postes-hormigon.jpg" alt="Postes de hormigón" loading="lazy"><img src="img/hero/pinches.jpg" alt="Tira de pinches de seguridad sobre muro" loading="lazy"></div></div>
+      <div class="print d" data-fx data-par="-.04"><div class="pago"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></span><b>Abonás</b><b>al recibir</b></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Cinta de texto deslizante debajo del hero -->
+<div class="ticker" aria-hidden="true">
+  <div class="track">
+    <span>Tejidos Romboidales ✦ Palos de eucalipto ✦ Postes de quebracho y hormigón ✦ Puertas y portones ✦ Tranqueras de madera ✦ Seguridad perimetral ✦ Accesorios y herrajes ✦ Instalación ✦ Envíos programados ✦</span>
+    <span>Tejidos Romboidales ✦ Palos de eucalipto ✦ Postes de quebracho y hormigón ✦ Puertas y portones ✦ Tranqueras de madera ✦ Seguridad perimetral ✦ Accesorios y herrajes ✦ Instalación ✦ Envíos programados ✦</span>
+  </div>
+</div>
+
+<!-- Botón flotante de WhatsApp con globo de mensaje (se puede cerrar) -->
+<div class="wa-float" id="waFloat">
+  <div class="bubble"><button type="button" class="x" id="waClose" aria-label="Cerrar">×</button><b>¡Estamos online!</b>Escribinos y te asesoramos</div>
+  <a class="btn-wa" data-wa="Hola! Quiero pedir un presupuesto para un proyecto de cerco." href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.12h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.14.82.84-3.06-.2-.31a8.22 8.22 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 5.83 2.42 8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.24 8.24zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.23.89 2.41 1.02 2.58.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+  </a>
+</div>
+
+<!-- Sección de productos: tarjetas con cada tipo de material/servicio -->
+<section id="productos">
+  <div class="wrap">
+    <div class="head" data-fx><h2><span class="fino">Todo para</span>cercar tu terreno</h2><p>Contanos tu proyecto, te brindamos asesoramiento y realizamos un presupuesto a tu medida.</p></div>
+    <div class="prods">
+      <article class="prod" data-fx tabindex="0" role="button" aria-haspopup="dialog" aria-label="Realizamos colocación: ver detalle">
+        <div class="ph"><img src="img/instalacion-completa.jpg" alt="Cerco de tejido romboidal con postes de madera instalado por APS" loading="lazy" style="--pos:50% 50%"></div>
+        <div class="tx"><h3>Realizamos colocación</h3><span class="ver" aria-hidden="true">+</span>
+          <div class="det"><p>No solo vendemos los materiales, también los instalamos.</p><a class="more" data-wa="Hola! Quiero un presupuesto con instalación del cerco." href="#" target="_blank" rel="noopener">Consultar por WhatsApp <span class="ci" aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+      <article class="prod" data-fx tabindex="0" role="button" aria-haspopup="dialog" aria-label="Tejidos Romboidales: ver detalle">
+        <div class="ph"><img src="img/tejido-deposito-vertical.jpg" alt="Rollos de tejido romboidal en el depósito" loading="lazy" style="--pos:50% 50%"></div>
+        <div class="tx"><h3>Tejidos Romboidales</h3><span class="ver" aria-hidden="true">+</span>
+          <div class="det"><p>El clásico cerco de rombos, de fabricación propia. Rombo de 2&quot;, 2,5&quot; y 3&quot;, en calibre 14 y 16.</p><a class="more" data-wa="Hola! Quiero cotizar Tejido Romboidal." href="#" target="_blank" rel="noopener">Consultar por WhatsApp <span class="ci" aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+      <article class="prod" data-fx tabindex="0" role="button" aria-haspopup="dialog" aria-label="Puertas y portones: ver detalle">
+        <div class="ph"><img src="img/portones-deposito.webp" alt="Puertas y portones de caño galvanizados y pintados de negro en el depósito" loading="lazy" style="--pos:56% 50%"></div>
+        <div class="tx"><h3>Puertas y portones</h3><span class="ver" aria-hidden="true">+</span>
+          <div class="det"><p>Puertas y portones de caño con tejido romboidal, de una o dos hojas, galvanizados o pintados.</p><a class="more" data-wa="Hola! Quiero cotizar una puerta o portón." href="#" target="_blank" rel="noopener">Consultar por WhatsApp <span class="ci" aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+      <article class="prod" data-fx tabindex="0" role="button" aria-haspopup="dialog" aria-label="Palos de eucalipto: ver detalle">
+        <div class="ph"><img src="img/palos-eucalipto.webp" alt="Palos redondos de eucalipto listos para entregar" loading="lazy" style="--pos:50% 62%"></div>
+        <div class="tx"><h3>Palos de eucalipto</h3><span class="ver" aria-hidden="true">+</span>
+          <div class="det"><p>Una opción económica, resistente y duradera para postes de tejido romboidal, pérgolas y galerías.</p><a class="more" data-wa="Hola! Quiero cotizar palos redondos de eucalipto." href="#" target="_blank" rel="noopener">Consultar por WhatsApp <span class="ci" aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+      <article class="prod" data-fx tabindex="0" role="button" aria-haspopup="dialog" aria-label="Postes de quebracho: ver detalle">
+        <div class="ph"><img src="img/quebracho-vertical.jpg" alt="Postes de quebracho colorado con punta" loading="lazy" style="--pos:50% 72%"></div>
+        <div class="tx"><h3>Postes de quebracho</h3><span class="ver" aria-hidden="true">+</span>
+          <div class="det"><p>Quebracho colorado, madera dura y resistente, ideal para postes de tejido romboidal y alambrado de 7 hilos.</p><a class="more" data-wa="Hola! Quiero cotizar postes de quebracho colorado." href="#" target="_blank" rel="noopener">Consultar por WhatsApp <span class="ci" aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+      <article class="prod" data-fx tabindex="0" role="button" aria-haspopup="dialog" aria-label="Postes de hormigón: ver detalle">
+        <div class="ph"><img src="img/postes-hormigon.webp" alt="Postes de hormigón apilados en el depósito" loading="lazy" style="--pos:50% 30%"></div>
+        <div class="tx"><h3>Postes de hormigón</h3><span class="ver" aria-hidden="true">+</span>
+          <div class="det"><p>La opción más utilizada para cercar barrios, countries, lotes y más.</p><a class="more" data-wa="Hola! Quiero cotizar postes de hormigón." href="#" target="_blank" rel="noopener">Consultar por WhatsApp <span class="ci" aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+      <article class="prod" data-fx tabindex="0" role="button" aria-haspopup="dialog" aria-label="Tranqueras de madera: ver detalle">
+        <div class="ph"><img src="img/tranquera-vertical.webp" alt="Tranquera de madera en el depósito de APS" loading="lazy" style="--pos:45% 50%"></div>
+        <div class="tx"><h3>Tranqueras de madera</h3><span class="ver" aria-hidden="true">+</span>
+          <div class="det"><p>Tranqueras y portones de tablas de madera para campos, quintas y accesos rurales.</p><div class="tags"><span>Quebracho colorado</span><span>Madera saligna</span></div><a class="more" data-wa="Hola! Quiero cotizar una tranquera o portón de madera." href="#" target="_blank" rel="noopener">Consultar por WhatsApp <span class="ci" aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+      <article class="prod" data-fx tabindex="0" role="button" aria-haspopup="dialog" aria-label="Seguridad perimetral: ver detalle">
+        <div class="ph collage"><picture><source media="(min-width:701px)" srcset="img/seguridad-collage-desk.jpg"><img src="img/seguridad-collage.jpg" alt="Alambre de púa galvanizado, tira de pinches y concertina" loading="lazy" style="--pos:50% 50%"></picture></div>
+        <div class="tx"><h3>Seguridad perimetral</h3><span class="ver" aria-hidden="true">+</span>
+          <div class="det"><p>Alambre de púa, concertina y pinches de seguridad.</p><a class="more" data-wa="Hola! Quiero consultar por seguridad perimetral (alambre de púa, concertina o pinches)." href="#" target="_blank" rel="noopener">Consultar por WhatsApp <span class="ci" aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+      <article class="prod" data-fx tabindex="0" role="button" aria-haspopup="dialog" aria-label="Accesorios: ver detalle">
+        <div class="ph"><img src="img/herrajes-galvanizados.jpg" alt="Accesorios galvanizados para la colocación de cercos" loading="lazy" style="--pos:50% 50%"></div>
+        <div class="tx"><h3>Accesorios</h3><span class="ver" aria-hidden="true">+</span>
+          <div class="det"><p>Todo para tensar y fijar el tejido: palomitas curvas y rectas, ganchos J, planchuelas, mini torniquetes, llave California, espárragos, alambre de alta resistencia y alambre para manea.</p><a class="more" data-wa="Hola! Quiero consultar accesorios de colocación." href="#" target="_blank" rel="noopener">Consultar por WhatsApp <span class="ci" aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+      <article class="prod" data-fx tabindex="0" role="button" aria-haspopup="dialog" aria-label="Herrajes: ver detalle">
+        <div class="ph collage"><picture><source media="(min-width:701px)" srcset="img/herrajes-collage-card-desk.jpg"><img src="img/herrajes-collage-card.jpg" alt="Herrajes para portón: bisagras, cerrojo con portacandado y pasador al piso" loading="lazy" style="--pos:50% 50%"></picture></div>
+        <div class="tx"><h3>Herrajes</h3><span class="ver" aria-hidden="true">+</span>
+          <div class="det"><p>Bisagras para postes, bisagras para amurar, pasador al piso y cerrojo portacandado.</p><a class="more" data-wa="Hola! Quiero consultar herrajes para portón." href="#" target="_blank" rel="noopener">Consultar por WhatsApp <span class="ci" aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+      <article class="prod" data-fx tabindex="0" role="button" aria-haspopup="dialog" aria-label="Cinta cubre cerco: ver detalle">
+        <div class="ph collage"><picture><source media="(min-width:701px)" srcset="img/cinta-card-desk.jpg"><img src="img/cinta-card.jpg" alt="Usos de la cinta cubre cerco: pérgola, panel y tejido romboidal con cinta entrelazada" loading="lazy" style="--pos:50% 50%"></picture></div>
+        <div class="tx"><h3>Cinta cubre cerco</h3><span class="ver" aria-hidden="true">+</span>
+          <div class="det"><p>Sumá privacidad a tus espacios con cintas cubre cerco y botones de sujeción, para tejido romboidal y reja. También se puede utilizar para pérgolas.</p><a class="more" data-wa="Hola! Quiero consultar cinta cubre cerco." href="#" target="_blank" rel="noopener">Consultar por WhatsApp <span class="ci" aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+      <article class="prod cta-t" data-fx><div class="sello sello-cta" aria-hidden="true"><svg class="anillo" viewBox="0 0 200 200"><defs><path id="selloCirc2" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><text><textPath href="#selloCirc2" textLength="486" lengthAdjust="spacing">FABRICACIÓN PROPIA ✦ TEJIDO ROMBOIDAL ✦ A MEDIDA ✦ </textPath></text></svg><img src="img/logo.svg" alt=""></div><div class="lbl">¿No sabés qué necesitás?</div><h3>Te asesoramos</h3><p>Contanos qué querés cercar y te armamos un presupuesto a medida.</p><a class="btn" id="send3" href="#" target="_blank" rel="noopener">Pedir presupuesto <span class="ci" aria-hidden="true">→</span></a></article>
+    </div>
+  </div>
+</section>
+
+<!-- Sección "Nosotros": historia de la empresa y puntos destacados -->
+<section id="nosotros" class="story">
+  <div class="wrap grid">
+    <div data-fx>
+      <div class="lbl"><b>///</b> Quiénes somos</div>
+      <h2><span class="fino">Fabricamos el tejido</span>que cerca tu terreno</h2>
+      <p>En A.P.S. Alambres Perimetrales del Sur fabricamos nuestro propio tejido romboidal, vendemos todos los insumos para cercar tu terreno y hacemos la instalación completa con nuestro equipo. Presupuestos a medida, envíos programados y asesoramiento en cada paso, para que tu cerco quede resistente y bien hecho.</p>
+      <ul class="four" aria-label="Por qué elegirnos">
+        <li>De fábrica<small>Tejido de producción propia</small></li>
+        <li>Instalación<small>La hace nuestro equipo</small></li>
+        <li>Envíos<small>Coordinados con vos</small></li>
+        <li>Asesoramiento<small>Te ayudamos a elegir</small></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Sección "Proceso": pasos del asesoramiento, de la consulta a la entrega -->
+<section>
+  <div class="wrap">
+    <div class="head" data-fx><h2><span class="fino">Así</span>trabajamos</h2><p>Del primer contacto a tu cerco terminado.</p></div>
+    <ul class="steps" data-fx="in">
+      <li><b>01</b><h4>Consulta</h4><p>Nos contás tu proyecto: qué querés cercar, las medidas aproximadas, la altura que buscás y si necesitás puertas o portones. Si tenés fotos del lugar, mejor.</p></li>
+      <li><b>02</b><h4>Presupuesto</h4><p>Con esa info te recomendamos los materiales que mejor se adaptan y te armamos un presupuesto a medida, sin compromiso.</p></li>
+      <li><b>03</b><h4>Entrega o instalación</h4><p>Te llevamos los materiales, los retirás por el depósito o <strong>vamos y lo instalamos</strong>. Según el proyecto, muchas veces se resuelve en el día.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Sección "Depósito y envíos": dónde retirar y cómo coordinar el pedido -->
+<section id="zona" class="zona">
+  <div class="wrap">
+    <div class="box" data-fx>
+      <div class="lbl"><b>///</b> Depósito y envíos</div>
+      <h2 style="margin-top:14px"><span class="fino">Coordinamos el envío</span>de tu compra</h2>
+      <p>Coordinamos el envío según tu proyecto: la zona, la distancia y el tipo de trabajo. También podés retirar por nuestro depósito con cita previa. Según el proyecto, muchas veces se resuelve en el día.</p>
+      <div class="datos">
+        <div><b>Depósito</b><span>Antonio Lamberti 970, Glew<br>Retiro con cita programada</span></div>
+        <div><b>Atención telefónica</b><span>Lunes a sábado: 8 a 13 y 15 a 19 hs<br>Domingos y feriados: sin atención</span></div>
+      </div>
+      <div class="mapa"><iframe src="https://maps.google.com/maps?q=Antonio%20Lamberti%20970%2C%20Glew%2C%20Buenos%20Aires&z=15&output=embed" title="Mapa del depósito en Glew" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+      <div class="cta"><a class="btn" id="send4" href="#" target="_blank" rel="noopener">Coordinar mi pedido <span class="ci" aria-hidden="true">→</span></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección de consulta: formulario que arma un mensaje de WhatsApp -->
+<section id="consulta">
+  <div class="wrap">
+    <div class="head" data-fx><h2><span class="fino">¿Querés un</span>presupuesto?</h2><p>Contanos de qué se trata tu proyecto y te respondemos con los materiales recomendados y un presupuesto a medida.</p></div>
+    <form class="cform" id="cform" data-fx="in">
+      <div><label for="c-nombre">Nombre</label><input id="c-nombre" autocomplete="name" required></div>
+      <div><label for="c-tel">Teléfono</label><input id="c-tel" type="tel" autocomplete="tel"></div>
+      <div class="full"><label>¿Qué buscás?</label><div class="opciones">
+        <label class="op"><input type="radio" name="c-modo" value="Solo materiales" checked><span><b>Solo materiales</b><small>Te los llevamos o los retirás</small></span></label>
+        <label class="op"><input type="radio" name="c-modo" value="Con instalación"><span><b>Con instalación</b><small>Lo colocamos nosotros</small></span></label>
+      </div></div>
+      <div class="full"><label for="c-tipo">¿Qué necesitás?</label><select id="c-tipo"><option>Tejido romboidal</option><option>Palos redondos de eucalipto</option><option>Postes de quebracho colorado</option><option>Postes de hormigón</option><option>Puerta o portón de caño</option><option>Tranquera o portón de madera</option><option>Seguridad perimetral (púa, concertina, pinches)</option><option>Accesorios de colocación</option><option>Herrajes para portón</option><option>Instalación completa del cerco</option><option>No estoy seguro, quiero asesorarme</option></select></div>
+      <div class="full"><label for="c-msg">Mensaje</label><textarea id="c-msg" rows="4" placeholder="Contanos tu proyecto: qué querés cercar, medidas aproximadas, altura, si necesitás portón y dónde es la obra"></textarea></div>
+      <div class="full"><button class="btn" type="submit">Enviar consulta por WhatsApp <span class="ci" aria-hidden="true">→</span></button></div>
+    </form>
+  </div>
+</section>
+
+<!-- Sección de preguntas frecuentes (acordeón con <details>/<summary>) -->
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="head" data-fx><h2><span class="fino">preguntas</span>frecuentes</h2></div>
+    <div class="faq" data-fx="in">
+      <details><summary>¿Cómo pido un presupuesto?</summary><p>Escribinos por WhatsApp o completá el formulario contándonos tu proyecto: qué querés cercar, las medidas y la altura. Te respondemos con los materiales recomendados y un presupuesto a medida.</p></details>
+      <details><summary>¿Hacen la instalación?</summary><p>Sí. Además de vender los materiales, hacemos la instalación completa del cerco con nuestro equipo: postes, tejido, alambre de púa, cinta cubre cerco y portones. Contanos tu proyecto y te pasamos el presupuesto con la colocación incluida.</p></details>
+      <details><summary>¿Hacen envíos?</summary><p>Sí, hacemos envíos programados. También podés retirar por nuestro depósito en Antonio Lamberti 970, Glew, coordinando una cita.</p></details>
+      <details><summary>¿Cuánto tarda?</summary><p>Depende del proyecto. Muchas veces se resuelve en el día; para pedidos más grandes coordinamos la fecha con vos.</p></details>
+      <details><summary>¿Cuál es el horario de atención telefónica?</summary><p>Atendemos por teléfono y WhatsApp de lunes a sábado de 8 a 13 y de 15 a 19 hs. Domingos y feriados, sin atención. Este no es el horario del depósito: para retirar, coordinamos antes una cita.</p></details>
+      <details><summary>¿El tejido es de fabricación propia?</summary><p>Sí, fabricamos nuestros tejidos romboidales, y además vendemos postes, portones, alambre de púa y todos los accesorios. También hacemos la instalación.</p></details>
+      <details><summary>¿Qué medidas de tejido tienen?</summary><p>Fabricamos tejido romboidal con rombo de 2", 2,5" y 3" pulgadas, en calibre 14 y 16. Consultanos por la altura que necesitás.</p></details>
+      <details><summary>¿Puedo comprar poca cantidad?</summary><p>Sí, te asesoramos según lo que necesites, sin importar el tamaño del proyecto.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- Bloque final: cierre con llamado a la acción, logo y redes sociales -->
+<div class="final">
+  <div class="wrap grid">
+    <div data-fx><h2><span class="fino">Cercá tu terreno</span>con total seguridad</h2><p>Escribinos y te ayudamos a elegir los materiales para tu cerco perimetral, o lo instalamos nosotros.</p></div>
+    <div class="ch" data-fx>
+      <img class="logo" src="img/logo.svg" alt="APS Alambres Perimetrales del Sur">
+      <a class="btn" id="send2" href="#" target="_blank" rel="noopener">Hablar por WhatsApp <span class="ci" aria-hidden="true">→</span></a>
+      <a class="l" id="ig" href="#" target="_blank" rel="noopener"><span class="red ig"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3" fill="currentColor"/></svg></span>Instagram @aps.alambres</a>
+      <a class="l" id="tt" href="#" target="_blank" rel="noopener"><span class="red tt"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.5 3h3c.2 1.9 1.6 3.4 3.5 3.6v3c-1.3 0-2.5-.4-3.5-1v6.1a5.6 5.6 0 1 1-5.6-5.6c.3 0 .6 0 .9.1v3.1a2.6 2.6 0 1 0 1.7 2.4V3z"/></svg></span>TikTok @alambres.perimetrales</a>
+      <a class="l" id="fb" href="https://www.facebook.com/p/APS-Alambres-Perimetrales-del-Sur-100065006472391/" target="_blank" rel="noopener"><span class="red fb"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.5H16l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21h2.9z"/></svg></span>Facebook APS Alambres Perimetrales del Sur</a>
+      <a class="l" id="fb2" href="https://www.facebook.com/profile.php?id=61557428006843" target="_blank" rel="noopener"><span class="red fb"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.5H16l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21h2.9z"/></svg></span>Facebook APS Tejidos Romboidal</a>
+    </div>
+  </div>
+</div>
+</main>
+<footer class="wrap">A.P.S. Alambres Perimetrales del Sur · Antonio Lamberti 970, Glew · Atención telefónica y WhatsApp 11 6017-6013 · Lun a sáb 8–13 y 15–19 hs</footer>
+
+<!-- Visor de fotos de productos -->
+<div class="ficha" id="ficha" aria-hidden="true"><div class="card" role="dialog" aria-modal="true" aria-labelledby="fichaT"><button type="button" class="ficha-x" aria-label="Cerrar">×</button><div class="foto"><img alt=""></div><div class="info"><span class="kick"></span><h3 id="fichaT"></h3><div class="cuerpo"></div></div></div></div>
+
+<!-- Script principal: arma los links de WhatsApp/Instagram y maneja el formulario -->
+<script>
+(function(){
+  // ====== DATOS DEL NEGOCIO (reemplazar si hace falta) ======
+  // Número de WhatsApp (formato internacional) y usuario de Instagram
+  var CFG={whatsapp:"5491160176013",instagram:"aps.alambres",tiktok:"alambres.perimetrales"};
+  // Genera un link de WhatsApp con el número configurado y un mensaje precargado
+  function wa(t){return "https://wa.me/"+CFG.whatsapp+"?text="+encodeURIComponent(t)}
+  // Completa el href de todos los botones/enlaces que tengan el atributo data-wa
+  Array.prototype.forEach.call(document.querySelectorAll("[data-wa]"),function(a){a.href=wa(a.getAttribute("data-wa"))});
+  // Botones de WhatsApp con mensajes específicos (sección final, productos, zona)
+  document.getElementById("send2").href=wa("Hola! Quiero pedir un presupuesto para un proyecto de cerco.");
+  document.getElementById("send3").href=wa("Hola! Quiero pedir un presupuesto para un proyecto de cerco.");
+  document.getElementById("send4").href=wa("Hola! Quiero coordinar el envío de un pedido. La obra está en: ");
+  // Link a Instagram armado a partir del usuario configurado
+  document.getElementById("ig").href="https://instagram.com/"+CFG.instagram;
+  document.getElementById("tt").href="https://www.tiktok.com/@"+CFG.tiktok;
+  // Pasos: en celular (sin mouse) se abren y cierran tocándolos; con teclado, con Enter
+  Array.prototype.forEach.call(document.querySelectorAll(".steps li"),function(li){
+    li.setAttribute("tabindex","0");
+    li.addEventListener("click",function(){li.classList.toggle("abierto")});
+    li.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();li.classList.toggle("abierto")}});
+  });
+  // Preguntas: en compu se abren al pasar el mouse y se cierran al salir; en celular, tocándolas
+  if(window.matchMedia&&window.matchMedia("(hover: hover)").matches){
+    Array.prototype.forEach.call(document.querySelectorAll(".faq details"),function(d){
+      d.addEventListener("mouseenter",function(){d.open=true});
+      d.addEventListener("mouseleave",function(){d.open=false});
+    });
+  }
+  // Collage del hero: cada foto cambia sola cada pocos segundos, desfasadas entre sí
+  (function(){
+    if(/captura/.test(location.search))return;
+    if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+    Array.prototype.forEach.call(document.querySelectorAll(".print .in-img"),function(box,n){
+      var fotos=box.querySelectorAll("img");if(fotos.length<2)return;
+      var i=0;box.classList.add("rotando");fotos[0].classList.add("on");
+      setTimeout(function(){setInterval(function(){fotos[i].classList.remove("on");i=(i+1)%fotos.length;fotos[i].classList.add("on");
+      },4200)},n*1400);
+    });
+  })();
+  // Hero: fotos de trabajos realizados que se turnan de fondo
+  (function(){
+    var f=document.querySelectorAll(".hero-bg img");if(!f.length)return;
+    var i=0;f[0].classList.add("on");
+    if(/captura/.test(location.search)||(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches))return;
+    setInterval(function(){f[i].classList.remove("on");i=(i+1)%f.length;f[i].classList.add("on")},5000);
+  })();
+  // Ficha de producto: tocar una tarjeta abre el detalle con la foto completa, descripción y botón de WhatsApp
+  (function(){
+    var f=document.getElementById("ficha");if(!f)return;
+    var img=f.querySelector(".foto img"),kick=f.querySelector(".kick"),tit=f.querySelector("h3"),cuerpo=f.querySelector(".cuerpo"),ult=null;
+    function abrir(card){
+      ult=card;var i=card.querySelector(".ph img");
+      img.src=i.getAttribute("data-full")||i.getAttribute("src");img.alt=i.alt;
+      var k=card.querySelector(".kick");kick.textContent=k?k.textContent:"";kick.style.display=k?"":"none";
+      tit.textContent=card.querySelector("h3").textContent;
+      cuerpo.innerHTML="";var d=card.querySelector(".det").cloneNode(true);
+      while(d.firstChild)cuerpo.appendChild(d.firstChild);
+      cuerpo.style.display="flex";cuerpo.style.flexDirection="column";cuerpo.style.gap="14px";cuerpo.style.flex="1";
+      f.classList.add("abierto");f.setAttribute("aria-hidden","false");document.body.classList.add("sin-scroll");
+      f.querySelector(".ficha-x").focus();
+    }
+    function cerrar(){f.classList.remove("abierto");f.setAttribute("aria-hidden","true");document.body.classList.remove("sin-scroll");if(ult)ult.focus()}
+    Array.prototype.forEach.call(document.querySelectorAll("#productos .prod:not(.cta-t)"),function(c){
+      c.addEventListener("click",function(e){if(e.target.closest("a"))return;abrir(c)});
+      c.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();abrir(c)}});
+    });
+    f.addEventListener("click",function(e){if(e.target===f||e.target.closest(".ficha-x"))cerrar()});
+    document.addEventListener("keydown",function(e){if(e.key==="Escape"&&f.classList.contains("abierto"))cerrar()});
+  })();
+  // Botón para cerrar el globo de mensaje del WhatsApp flotante
+  var waClose=document.getElementById("waClose");
+  if(waClose){waClose.addEventListener("click",function(){document.getElementById("waFloat").classList.add("closed")})}
+  // Menú del celular: abre/cierra con el botón y se cierra al tocar una sección
+  var top=document.querySelector("header.top"),menuBtn=document.getElementById("menuBtn");
+  function menu(abrir){top.classList.toggle("abierto",abrir);menuBtn.setAttribute("aria-expanded",abrir);menuBtn.setAttribute("aria-label",abrir?"Cerrar menú":"Abrir menú")}
+  menuBtn.addEventListener("click",function(){menu(!top.classList.contains("abierto"))});
+  Array.prototype.forEach.call(document.querySelectorAll("#menu a"),function(a){a.addEventListener("click",function(){menu(false)})});
+  // Con ?menu en la URL arranca abierto (sirve para sacar capturas)
+  if(/menu/.test(location.search))menu(true);
+  // Al enviar el formulario de consulta, arma el mensaje con los datos cargados
+  // y abre WhatsApp en una pestaña nueva en lugar de enviar el formulario de forma tradicional
+  document.getElementById("cform").addEventListener("submit",function(e){
+    e.preventDefault();
+    var g=function(i){return document.getElementById(i).value.trim()};
+    var modo=document.querySelector('input[name="c-modo"]:checked');
+    var t="Hola! Soy "+g("c-nombre")+". Quiero un presupuesto para: "+g("c-tipo")+(modo?" ("+modo.value.toLowerCase()+")":"")+(g("c-tel")?"\nTel: "+g("c-tel"):"")+(g("c-msg")?"\n"+g("c-msg"):"");
+    window.open(wa(t),"_blank","noopener");
+  });
+})();
+</script>
+
+<script>
+/* Efecto de scroll: lo nuevo aparece suavemente (se desenfoca apenas, sube y crece) */
+(function(){
+  // Si el usuario prefiere menos movimiento, no se aplica ningún efecto
+  if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  // Con ?captura en la URL no se aplica el efecto (sirve para sacar capturas de la página entera)
+  if(/captura/.test(location.search))return;
+  // Todos los elementos marcados con data-fx son los que reciben la animación
+  var els=[].slice.call(document.querySelectorAll("[data-fx]"));
+  var busy=false; // evita recalcular el efecto más de una vez por frame
+  function cl(x){return x<0?0:x>1?1:x} // limita un valor entre 0 y 1
+  function ease(x){return x*x*(3-2*x)} // curva de suavizado (smoothstep)
+  // Calcula y aplica la opacidad, desenfoque, desplazamiento y escala de cada elemento
+  // según su posición respecto a la ventana visible (solo efecto de aparición;
+  // lo que ya se leyó queda nítido al seguir bajando)
+  function run(){
+    busy=false;
+    var vh=window.innerHeight||800;
+    els.forEach(function(el){
+      var r=el.getBoundingClientRect(),c=r.top+r.height/2;
+      // pin: qué tan "entrado" está el elemento al hacer scroll hacia abajo
+      // (se mide desde el borde superior, así los bloques altos no tardan en aparecer)
+      var pin=ease(cl((vh*.96-r.top)/(vh*.22)));
+      var par=parseFloat(el.getAttribute("data-par")||"0"); // factor de parallax opcional
+      var op=pin; // opacidad final
+      var blur=(1-pin)*4; // desenfoque leve solo al entrar
+      var ty=(1-pin)*30+(par?(c-vh*.5)*par:0); // desplazamiento vertical (+ parallax)
+      var sc=1-(1-pin)*.05; // escala (crece levemente al aparecer)
+      var st=el.style;
+      st.opacity=op>.995?"":op.toFixed(3);
+      st.filter=blur>.4?"blur("+blur.toFixed(1)+"px)":"";
+      st.translate=(Math.abs(ty)>.3)?"0 "+ty.toFixed(1)+"px":"";
+      st.scale=Math.abs(1-sc)>.002?sc.toFixed(3):"";
+    });
+  }
+  // Pide el recálculo del efecto en el próximo frame disponible (throttle con rAF)
+  function req(){if(!busy){busy=true;window.requestAnimationFrame(run)}}
+  window.addEventListener("scroll",req,{passive:true});
+  window.addEventListener("resize",req);
+  window.addEventListener("load",req);
+  run();
+})();
+</script>
+</body>
+</html>
